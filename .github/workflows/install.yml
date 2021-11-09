@@ -1,0 +1,21 @@
+# This is the workflow to verify the correct install of MISP from the bash script
+
+name: Install MISP
+
+on: push
+
+jobs:
+  install:
+    runs-on: [ubuntu-20.04]
+  
+    steps:
+      - name: Checkout Git repository
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+
+      - name: Create MISP user
+        run: |
+              sudo adduser misp
+      - name: Run installation bash script
+        run: bash ./INSTALL/INSTALL.sh -c
