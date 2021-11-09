@@ -17,5 +17,6 @@ jobs:
       - name: Create MISP user
         run: |
               sudo adduser misp
+              whoami
       - name: Run installation bash script
         run: bash -x ./INSTALL/INSTALL.sh -A
